@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>悉尼 + 圣灵群岛 · 12 晚协作看板（10/22-11/3）</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f4f2ee; color: #2b2b2b; line-height: 1.55; padding-bottom: 60px;
+  }
+  .hero {
+    background: linear-gradient(rgba(10,32,51,.72), rgba(10,32,51,.78)),
+      url('https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Sunset_over_the_Sydney_Opera_House.jpg/960px-Sunset_over_the_Sydney_Opera_House.jpg') center/cover;
+    color: #fff; padding: 46px 20px 30px;
+  }
+  .hero h1 { font-size: 26px; letter-spacing: .5px; }
+  .hero .sub { margin-top: 8px; font-size: 14.5px; opacity: .92; }
+  .chips { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.35);
+    border-radius: 999px; padding: 4px 12px; font-size: 12.5px; backdrop-filter: blur(2px);
+  }
+  nav {
+    position: sticky; top: 0; z-index: 50; background: #12314e;
+    display: flex; gap: 2px; overflow-x: auto; padding: 0 10px;
+  }
+  nav a {
+    color: #cfe0ee; text-decoration: none; font-size: 12.5px; padding: 11px 9px;
+    white-space: nowrap; border-bottom: 2px solid transparent;
+  }
+  nav a:hover { color: #fff; border-bottom-color: #e8b64c; }
+  main { max-width: 1060px; margin: 0 auto; padding: 18px 14px; }
+  h2.sec { font-size: 19px; margin: 26px 4px 10px; display: flex; align-items: center; gap: 8px; }
+  .tip {
+    background: #fff8e8; border-left: 4px solid #e8b64c; border-radius: 8px;
+    padding: 10px 14px; font-size: 13px; margin: 8px 0 12px;
+  }
+  .rate { font-size: 12px; color: #8a8a8a; margin: 0 4px 10px; }
+  table { width: 100%; border-collapse: collapse; background: #fff; font-size: 13.5px; }
+  th, td { border: 1px solid #e5e0d8; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f0ece4; font-size: 12.5px; color: #5a5348; white-space: nowrap; }
+  .day {
+    background: #fff; border-radius: 14px; box-shadow: 0 1px 6px rgba(0,0,0,.06);
+    margin: 16px 0; overflow: hidden;
+  }
+  .day-head {
+    padding: 10px 16px; color: #fff; font-weight: 700; font-size: 15px;
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline;
+  }
+  .day-head .theme { font-weight: 400; font-size: 12.5px; opacity: .9; }
+  .seg-syd .day-head { background: linear-gradient(90deg,#1e5a8a,#2f76ad); }
+  .seg-kia .day-head { background: linear-gradient(90deg,#c96f2e,#e08d4a); }
+  .seg-whi .day-head { background: linear-gradient(90deg,#0f7d74,#1ba396); }
+  .day table { border: none; }
+  .day td:first-child { white-space: nowrap; color: #8a7a5a; font-size: 12.5px; width: 86px; }
+  .poi { display: flex; gap: 10px; align-items: flex-start; }
+  .poi img { width: 86px; height: 62px; object-fit: cover; border-radius: 6px; flex: none; }
+  .poi .en { font-size: 11.5px; color: #999; }
+  .poi .desc { font-size: 12.5px; color: #666; margin-top: 2px; }
+  tr.food td { background: #fdf6e7; border-left: 4px solid #d4a017; }
+  tr.work td { background: #eef2f7; border-left: 4px solid #7a93b5; }
+  .st { display: inline-block; border-radius: 6px; padding: 2px 8px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .st-ok { background: #e3f3e5; color: #1e7a2e; }
+  .st-wait { background: #fdf1d3; color: #a67c00; }
+  .st-todo { background: #fbe3e3; color: #c02f2f; }
+  .st-free { background: #ececec; color: #666; }
+  a { color: #1e5a8a; }
+  .map { font-size: 11.5px; white-space: nowrap; }
+  .blank { color: #b7ab98; letter-spacing: 1px; }
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 21px; }
+    .poi img { width: 68px; height: 50px; }
+    th, td { padding: 6px 7px; font-size: 12.5px; }
+  }
+  @media print {
+    nav, #editbar { display: none !important; }
+    body { background: #fff; padding-bottom: 0; }
+    .day { box-shadow: none; break-inside: avoid; }
+    .hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>🌊 悉尼 + 圣灵群岛 · 12 晚松弛之旅</h1>
+  <div class="sub">3 人（你 + 妈妈 + 男朋友）· 北京 ⇄ 悉尼国航直飞 · 悉尼 5 晚 → Kiama 海景民宿 2 晚 → 圣灵群岛 4 晚 → 悉尼 1 晚</div>
+  <div class="chips">
+    <span class="chip">📅 10/22 - 11/3</span>
+    <span class="chip">🛏 4 处住宿</span>
+    <span class="chip">✈️ 4 段航班</span>
+    <span class="chip">🎭 My Fair Lady</span>
+    <span class="chip">🔴 6 件急订</span>
+    <span class="chip">💼 3 个工作/直播日</span>
+  </div>
+</header>
+
+<nav>
+  <a href="#master">📒 总表</a>
+  <a href="#d1">D1</a><a href="#d2">D2</a><a href="#d3">D3</a><a href="#d4">D4</a>
+  <a href="#d5">D5</a><a href="#d6">D6</a><a href="#d7">D7</a><a href="#d8">D8</a>
+  <a href="#d9">D9</a><a href="#d10">D10</a><a href="#d11">D11</a><a href="#d12">D12</a><a href="#d13">D13</a>
+</nav>
+
+<main>
+
+<h2 class="sec" id="master">📒 总表 · 预订待办</h2>
+
+<div class="tip">
+  <b>预订优先级：</b>🔴 急（本周内订：内陆机票、Kiama 民宿、演出票——网红民宿和晚场票都很抢手）
+  🟡 已定方案（两周内订齐：悉尼/Airlie 两处 Airbnb、帆船、小飞机、租车）
+  🟢 可延后（保险、电话卡、行李清单）
+</div>
+<div class="rate">汇率口径：1 AUD ≈ ¥4.7（9/29 调研价，实付以扣款为准）；价格均为 9/29 官网/平台查询价，可能浮动</div>
+
+<table>
+  <tr><th style="width:150px">项目</th><th style="width:180px">日期 · 时间</th><th style="width:76px">状态</th><th>预约入口 / 备注</th><th style="width:96px">实记💰</th></tr>
+  <tr>
+    <td><b>国际机票（妈妈 · 公务舱）</b></td>
+    <td>去 10/22 01:40 PEK→SYD 15:50<br>回 11/3 10:10 SYD→PEK 18:30</td>
+    <td><span class="st st-wait">⏳ 待订</span></td>
+    <td>国航 CA173/CA174 直飞，携程参考价 ¥25,983（悦选公务舱，2h 内退票免费）。⚠️ 回程已从 11/2 顺延到 <b>11/3</b>，订票/改签时确认周二有班。<a href="https://www.airchina.com.cn/" target="_blank">国航官网</a> / 携程</td>
+    <td class="blank">______</td>
+  </tr>
+  <tr>
+    <td><b>国际机票（你 + 男朋友）</b></td>
+    <td>同上航班</td>
+    <td><span class="st st-wait">⏳ 待确认</span></td>
+    <td>由他人代订，确认同一航班 + 回程日期同步改到 11/3</td>
+    <td class="blank">______</td>
+  </tr>
+  <tr>
+    <td><b>🔴 内陆机票（悉尼⇄圣灵群岛）</b></td>
+    <td>去 10/29 约 15:40 SYD→PPP 18:15<br>回 11/2 约 13:55 PPP→SYD 17:25</td>
+    <td><span class="st st-todo">⬜ 未订</span></td>
+    <td>Jetstar 直飞 2.5h（JQ838 周四有班），往返约 AUD $170-310/人，3 人共约 ¥2,400-4,400。⚠️ 廉航不含托运行李，买票时加购。<a href="https://www.jetstar.com/au/en/home" target="_blank">Jetstar 官网</a>（也可携程同价对比）</td>
+    <td class="blank">______</td>
+  </tr>
+  <tr>
+    <td><b>🟡 悉尼 Airbnb（5 晚）</b></td>
+    <td>10/22 - 10/27</td>
+    <td><span class="st st-todo">⬜ 未订</span></td>
+    <td>2-3 室整租，建议区域：Circular Quay / The Rocks（景点步行圈）或 Surry Hills（本地生活感）。<a href="https://www.airbnb.com/s/Sydney--Australia/homes?checkin=2026-10-22&checkout=2026-10-27&adults=3" target="_blank">👉 Airbnb 按日期搜</a></td>
+    <td class="blank">______</td>
+  </tr>
+  <tr>
+    <td><b>🔴 Kiama 海景民宿（2 晚）</b></td>
+    <td>10/27 - 10/29</td>
+    <td><span class="st st-todo">⬜ 未订</span></td>
+    <td>首选 <b>Bask at Loves Bay</b>（小红书同款，4 卧 2.5 卫，整栋约 AUD $900+/晚）：<a href="https://www.airbnb.com/rooms/40593409" target="_blank">👉 查 10/27 房态</a>。订不到 → Kiama/Gerringong 高分海景房备选（见 D7 卡）</td>
+    <td class="blank">______</td>
+  </tr>
+  <tr>
+    <td><b>🟡 Airlie Beach Airbnb（4 晚）</b></td>
+    <td>10/29 - 11/2</td>
+    <td><span class="st st-todo">⬜ 未订</span></td>
+    <td>海景公寓，主街/Lagoon 步行圈内，出海集合点（Port of Airlie）越近越好。<a href="https://www.airbnb.com/s/Airlie-Beach--Australia/homes?checkin=2026-10-29&checkout=2026-11-02&adults=3" target="_blank">👉 Airbnb 按日期搜</a></td>
+    <td class="blank">______</td>
+  </tr>
+  <tr>
+    <td><b>🟡 悉尼最后 1 晚住宿</b></td>
+    <td>11/2 - 11/3</td>
+    <td><span class="st st-todo">⬜ 未订</span></td>
+    <td>机场附近或市区均可（次日 10:10 航班，8:00 前到机场）。可订酒店图省事</td>
+    <td class="blank">______</td>
+  </tr>
+  <tr>
+    <td><b>🔴 My Fair Lady 音乐剧 ×3</b></td>
+    <td>10/24（六）晚场 19:30 左右</td>
+    <td><span class="st st-todo">⬜ 未订</span></td>
+    <td>悉尼歌剧院 Joan Sutherland Theatre，3h 含中场，约 AUD $99-200+/人。备选场次：10/25（日）下午场。<a href="https://www.sydneyoperahouse.com/opera-australia/2026-season/my-fair-lady" target="_blank">👉 歌剧院官网订票</a></td>
+    <td class="blank">______</td>
+  </tr>
+  <tr>
+    <td><b>🟡 白天堂沙滩帆船一日 ×3</b></td>
+    <td>10/30（五）8:00-17:30 左右</td>
+    <td><span class="st st-todo">⬜ 未订</span></td>
+    <td>Camira 紫色双体帆船，AUD $235 起/人，含希尔湾观景台徒步 + BBQ 午餐（浮潜环节可不参加，纯玩沙滩）。<a href="https://www.cruisewhitsundays.com/experiences/?destinations=whitehaven-beach-hill-inlet" target="_blank">👉 Cruise Whitsundays 官网</a></td>
+    <td class="blank">______</td>
+  </tr>
+  <tr>
+    <td><b>🟡 心形礁观光小飞机 ×3</b></td>
+    <td>10/31（六）中午 11:30 场</td>
+    <td><span class="st st-todo">⬜ 未订</span></td>
+    <td>60 分钟，保证靠窗，AUD $287-338/人，含 Airlie 酒店接送。场次 7:00/8:30/10:00/11:30/13:00/14:30 可选。<a href="https://www.oceanrafting.com.au/scenic-flights/" target="_blank">👉 Ocean Rafting</a> / <a href="https://gslaviation.com.au/" target="_blank">GSL Aviation</a></td>
+    <td class="blank">______</td>
+  </tr>
+  <tr>
+    <td><b>🟡 租车（悉尼→Kiama 往返）</b></td>
+    <td>10/27 取 - 10/29 还</td>
+    <td><span class="st st-todo">⬜ 未订</span></td>
+    <td>悉尼市区/机场取还，紧凑型 SUV 即可，约 AUD $70-110/天。⚠️ 右舵左行，带中国驾照 + 翻译件（NAATI/国际驾照认证件）。<a href="https://www.zuzuche.com/" target="_blank">租租车</a> / <a href="https://www.avis.com.au/" target="_blank">Avis</a></td>
+    <td class="blank">______</td>
+  </tr>
+  <tr>
+    <td><b>🟢 旅行保险 ×3</b></td>
+    <td>全程</td>
+    <td><span class="st st-todo">⬜ 未订</span></td>
+    <td>含医疗+行程变更（出海项目天气取消可赔）即可，支付宝/平安等约 ¥100-200/人</td>
+    <td class="blank">______</td>
+  </tr>
+  <tr>
+    <td><b>🟢 电话卡/eSIM ×3</b></td>
+    <td>全程</td>
+    <td><span class="st st-todo">⬜ 未订</span></td>
+    <td>Optus/Telstra 游客卡，机场到达厅或淘宝提前买 eSIM</td>
+    <td class="blank">______</td>
+  </tr>
+  <tr>
+    <td>🆓 签证 ×3</td>
+    <td>已办妥</td>
+    <td><span class="st st-ok">✅ 已办</span></td>
+    <td>确认签证信（VEVO）打印/存手机，入境可能抽查</td>
+    <td>—</td>
+  </tr>
+</table>
+
+<!-- ======================= D1 ======================= -->
+<div class="day seg-syd" id="d1">
+  <div class="day-head">D1 · 10/22（四）<span class="theme">抵达悉尼 · 落地休整</span></div>
+  <table>
+    <tr><th>时间</th><th>去哪</th><th>怎么去</th><th>花多久</th><th>状态</th></tr>
+    <tr>
+      <td>01:40 ✈️</td>
+      <td><b>北京首都 T3 出发</b>（CA173，波音787）<div class="desc">商务舱记得用 T3 国航休息室，飞机上有餐食</div></td>
+      <td>直飞 11h10m</td>
+      <td>—</td>
+      <td><span class="st st-wait">⏳</span></td>
+    </tr>
+    <tr>
+      <td>15:50</td>
+      <td><b>落地悉尼 SYD T1</b><div class="desc">入境走 ePassport 自助通道（中国护照可用），申报卡如实填（药品/食品要申报）</div></td>
+      <td>接机/出租/Train 到市区（机场线约 AUD $20/人，打车到市区约 $50-70）</td>
+      <td>约 1h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr>
+      <td>17:30</td>
+      <td><b>入住 Airbnb + 附近超市补给</b><div class="desc">Coles/Woolworths 买水、牛奶、水果、早餐食材，后几天自己做早饭</div></td>
+      <td>步行</td>
+      <td>1.5h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr class="food">
+      <td>19:00</td>
+      <td>🍽 民宿附近简单晚餐，早睡倒时差<div class="desc">悉尼比北京快 3 小时，今晚硬扛到 21-22 点再睡，时差倒得快</div></td>
+      <td>—</td>
+      <td>—</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- ======================= D2 ======================= -->
+<div class="day seg-syd" id="d2">
+  <div class="day-head">D2 · 10/23（五）<span class="theme">歌剧院 + 海港渡轮 · 完整自由日（轻量倒时差）</span></div>
+  <table>
+    <tr><th>时间</th><th>去哪</th><th>怎么去</th><th>花多久</th><th>状态</th></tr>
+    <tr>
+      <td>09:30</td>
+      <td><div class="poi"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Sunset_over_the_Sydney_Opera_House.jpg/960px-Sunset_over_the_Sydney_Opera_House.jpg" alt=""><div><b>悉尼歌剧院</b> <span class="en">Sydney Opera House</span><div class="desc">外观打卡 + 沿 Bennelong Point 走一圈，早上人少好拍 <a class="map" href="https://www.google.com/maps/search/?api=1&query=Sydney+Opera+House" target="_blank">📍 地图</a></div></div></div></td>
+      <td>步行/打车</td>
+      <td>1.5h</td>
+      <td><span class="st st-free">🆓 外观免费</span></td>
+    </tr>
+    <tr>
+      <td>11:00</td>
+      <td><div class="poi"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Sydney_Harbour_Bridge_from_Circular_Quay.jpg/960px-Sydney_Harbour_Bridge_from_Circular_Quay.jpg" alt=""><div><b>皇家植物园 → 麦考利夫人座椅</b> <span class="en">Royal Botanic Garden / Mrs Macquarie's Chair</span><div class="desc">歌剧院+海港大桥同框的最佳机位 <a class="map" href="https://www.google.com/maps/search/?api=1&query=Mrs+Macquarie's+Chair" target="_blank">📍 地图</a></div></div></div></td>
+      <td>从歌剧院沿海边走 15 分钟</td>
+      <td>1.5h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr class="food">
+      <td>12:30</td>
+      <td>🍽 环形码头午餐：歌剧院旁的 Opera Bar（露天海景位）或码头餐厅</td>
+      <td>步行</td>
+      <td>1h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr>
+      <td>14:00</td>
+      <td><div class="poi"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Sydney_Ferry_Collaroy_1_-_Nov_2008.jpg/960px-Sydney_Ferry_Collaroy_1_-_Nov_2008.jpg" alt=""><div><b>Manly 渡轮往返</b> <span class="en">Manly Ferry</span><div class="desc">30 分钟海上穿越悉尼港，坐着看歌剧院+大桥+两岸豪宅，性价比之王（约 AUD $10 刷 Opal/信用卡）<a class="map" href="https://www.google.com/maps/search/?api=1&query=Manly+Wharf" target="_blank">📍 地图</a></div></div></div></td>
+      <td>环形码头 3 号栈桥坐船</td>
+      <td>往返 2.5h（Manly 海滩可小坐）</td>
+      <td><span class="st st-free">🆓 无需预约</span></td>
+    </tr>
+    <tr>
+      <td>17:30</td>
+      <td><b>回民宿休息 1 小时</b>（倒时差保命觉别睡太久）</td>
+      <td>—</td>
+      <td>1h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr class="food">
+      <td>19:00</td>
+      <td>🍽 晚餐 → 日落后溜达到歌剧院外看 <b>Badu Gili 帆顶灯光投影</b>（原住民艺术，每晚日落后，免费 8 分钟）</td>
+      <td>步行/打车</td>
+      <td>2h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- ======================= D3 ======================= -->
+<div class="day seg-syd" id="d3">
+  <div class="day-head">D3 · 10/24（六）<span class="theme">💼 工作日 → 晚场 My Fair Lady</span></div>
+  <table>
+    <tr><th>时间</th><th>去哪</th><th>怎么去</th><th>花多久</th><th>状态</th></tr>
+    <tr class="work">
+      <td>白天</td>
+      <td>💼 <b>工作日</b>（民宿办公；楼下咖啡馆换换环境）</td>
+      <td>—</td>
+      <td>—</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr class="food">
+      <td>18:00</td>
+      <td>🍽 歌剧院附近早晚餐（演出前 1 小时到剧院取票安检）</td>
+      <td>打车/步行</td>
+      <td>1h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr>
+      <td>19:30 前后</td>
+      <td><div class="poi"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Sunset_over_the_Sydney_Opera_House.jpg/960px-Sunset_over_the_Sydney_Opera_House.jpg" alt=""><div><b>My Fair Lady 窈窕淑女</b> <span class="en">Joan Sutherland Theatre</span><div class="desc">奥黛丽·赫本经典电影的音乐剧原版，《I Could Have Danced All Night》现场版，3 小时含中场。备选场次 10/25 下午场 <a class="map" href="https://www.google.com/maps/search/?api=1&query=Sydney+Opera+House" target="_blank">📍 地图</a></div></div></div></td>
+      <td>—</td>
+      <td>3h</td>
+      <td><span class="st st-todo">⬜ 订票</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- ======================= D4 ======================= -->
+<div class="day seg-syd" id="d4">
+  <div class="day-head">D4 · 10/25（日）<span class="theme">💼 工作日 → 傍晚蓝花楹 + 达令港</span></div>
+  <table>
+    <tr><th>时间</th><th>去哪</th><th>怎么去</th><th>花多久</th><th>状态</th></tr>
+    <tr class="work">
+      <td>白天</td>
+      <td>💼 <b>工作日</b></td>
+      <td>—</td>
+      <td>—</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr>
+      <td>17:00</td>
+      <td><div class="poi"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Jacaranda_at_University_of_Sydney.jpg/960px-Jacaranda_at_University_of_Sydney.jpg" alt=""><div><b>蓝花楹街区散步</b> <span class="en">Jacaranda（10 月底正值盛花期）</span><div class="desc">推荐 McDougall St（Kirribilli，紫色隧道+海港背景）或悉尼大学校园 <a class="map" href="https://www.google.com/maps/search/?api=1&query=McDougall+Street+Kirribilli" target="_blank">📍 地图</a></div></div></div></td>
+      <td>打车/Train 到 Milsons Point</td>
+      <td>1.5h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr class="food">
+      <td>19:00</td>
+      <td>🍽 达令港晚餐 + 港湾夜景散步<div class="desc">Darling Harbour 餐厅一条街，中餐/海鲜/澳餐都有，妈妈友好 <a class="map" href="https://www.google.com/maps/search/?api=1&query=Darling+Harbour" target="_blank">📍 地图</a></div></td>
+      <td>打车</td>
+      <td>2h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- ======================= D5 ======================= -->
+<div class="day seg-syd" id="d5">
+  <div class="day-head">D5 · 10/26（一）<span class="theme">🎥 直播 4h → 邦迪海岸徒步（按直播时间排上/下午）</span></div>
+  <table>
+    <tr><th>时间</th><th>去哪</th><th>怎么去</th><th>花多久</th><th>状态</th></tr>
+    <tr>
+      <td>半天</td>
+      <td><div class="poi"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Bondi_Beach_Aerial_-_panoramio.jpg/960px-Bondi_Beach_Aerial_-_panoramio.jpg" alt=""><div><b>邦迪 → Coogee 海岸步道</b> <span class="en">Bondi to Coogee Coastal Walk</span><div class="desc">全程 6km 约 2h，精华段是 Bondi→Bronte 3km（1h 够了）。悬崖海景步道，路过网红泳池 Icebergs。妈妈可走精华段后在 Bronte 咖啡馆等 <a class="map" href="https://www.google.com/maps/search/?api=1&query=Bondi+Beach" target="_blank">📍 地图</a></div></div></div></td>
+      <td>打车/公交 333 路到 Bondi</td>
+      <td>2-3h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr class="food">
+      <td>穿插</td>
+      <td>🍽 Bondi 海边咖啡 + 简餐（徒步起点先喝一杯再上栈道）</td>
+      <td>—</td>
+      <td>—</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr class="work">
+      <td>4h</td>
+      <td>🎥 <b>直播 4 小时</b>（民宿进行；徒步排在直播之外的那半天）</td>
+      <td>—</td>
+      <td>4h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- ======================= D6 ======================= -->
+<div class="day seg-kia" id="d6">
+  <div class="day-head">D6 · 10/27（二）<span class="theme">取车南下 · 海崖大桥 → Kiama 喷水洞</span></div>
+  <table>
+    <tr><th>时间</th><th>去哪</th><th>怎么去</th><th>花多久</th><th>状态</th></tr>
+    <tr>
+      <td>09:00</td>
+      <td><b>取车出发</b><div class="desc">右舵左行先适应 10 分钟，出城前加满油</div></td>
+      <td>自驾</td>
+      <td>—</td>
+      <td><span class="st st-todo">⬜ 订车</span></td>
+    </tr>
+    <tr>
+      <td>10:30</td>
+      <td><div class="poi"><img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Sea_Cliff_Bridge_from_air.jpg" alt=""><div><b>海崖大桥</b> <span class="en">Sea Cliff Bridge</span><div class="desc">架在海上的 665 米公路桥，车停北端（停车免费），上桥人行道走一段拍照 <a class="map" href="https://www.google.com/maps/search/?api=1&query=Sea+Cliff+Bridge" target="_blank">📍 地图</a></div></div></div></td>
+      <td>悉尼出发 1.5h</td>
+      <td>1h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr class="food">
+      <td>12:30</td>
+      <td>🍽 Wollongong 或沿途小镇午餐</td>
+      <td>顺路</td>
+      <td>1h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr>
+      <td>14:30</td>
+      <td><div class="poi"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Kiama_Blowhole%2C_January_2025.jpg/960px-Kiama_Blowhole%2C_January_2025.jpg" alt=""><div><b>Kiama 喷水洞 + 灯塔</b> <span class="en">Kiama Blowhole</span><div class="desc">海浪灌进海蚀洞喷出十几米水柱（浪大时最壮观），旁边就是灯塔和海岸草坪 <a class="map" href="https://www.google.com/maps/search/?api=1&query=Kiama+Blowhole" target="_blank">📍 地图</a></div></div></div></td>
+      <td>再开 45 分钟</td>
+      <td>1.5h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr>
+      <td>17:00</td>
+      <td><b>入住 Bask at Loves Bay</b><div class="desc">躺平等日落，明早直接在房间看海上日出 🌅</div></td>
+      <td>开车 10 分钟</td>
+      <td>—</td>
+      <td><span class="st st-todo">⬜ 订房</span></td>
+    </tr>
+    <tr class="food">
+      <td>19:00</td>
+      <td>🍽 民宿自己做饭（Woolworths Kiama 买牛排海鲜）或镇上餐厅</td>
+      <td>—</td>
+      <td>—</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- ======================= D7 ======================= -->
+<div class="day seg-kia" id="d7">
+  <div class="day-head">D7 · 10/28（三）<span class="theme">Kiama 松弛日 · 日出 + 海岸步道 + 小镇逛吃</span></div>
+  <table>
+    <tr><th>时间</th><th>去哪</th><th>怎么去</th><th>花多久</th><th>状态</th></tr>
+    <tr>
+      <td>06:15</td>
+      <td><b>房间看海上日出</b> 🌅<div class="desc">10 月底日出约 6:10-6:20，定个闹钟拉开窗帘就行，看完接着回笼觉</div></td>
+      <td>—</td>
+      <td>—</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr>
+      <td>10:00</td>
+      <td><b>Kiama Coast Walk 精华段</b><div class="desc">民宿后门就是步道！往 Cathedral Rocks 方向走 30-60 分钟，礁石海岸很出片，量力而行</div></td>
+      <td>步行</td>
+      <td>1-1.5h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr class="food">
+      <td>12:00</td>
+      <td>🍽 Penny Whistlers 咖啡馆午餐（本地人最爱，海景位，周三下午门前还有农夫市集）</td>
+      <td>开车 5 分钟</td>
+      <td>1h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr>
+      <td>14:00</td>
+      <td><b>Gerringong + Berry 小镇逛吃</b><div class="desc">Gerringong 看 Werri 海滩；Berry 是文艺小镇（甜品店 Donut Van 网红甜甜圈）。只想躺就回民宿看海</div></td>
+      <td>自驾 10/20 分钟</td>
+      <td>2-3h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr class="food">
+      <td>19:00</td>
+      <td>🍽 民宿第二晚：海边日落 + 自制晚餐</td>
+      <td>—</td>
+      <td>—</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- ======================= D8 ======================= -->
+<div class="day seg-whi" id="d8">
+  <div class="day-head">D8 · 10/29（四）<span class="theme">回悉尼还车 → 傍晚飞圣灵群岛</span></div>
+  <table>
+    <tr><th>时间</th><th>去哪</th><th>怎么去</th><th>花多久</th><th>状态</th></tr>
+    <tr>
+      <td>09:30</td>
+      <td><b>退房出发回悉尼</b>（留足余量，勿赶）</td>
+      <td>自驾 2h</td>
+      <td>2h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr>
+      <td>12:00</td>
+      <td><b>悉尼机场还车 + 午餐</b></td>
+      <td>—</td>
+      <td>1.5h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr>
+      <td>15:40 ✈️</td>
+      <td><b>Jetstar 直飞 SYD → PPP</b>（2.5h，18:15 到）<div class="desc">时刻以实际订票为准；廉航提前线上值机，托运行李提前买</div></td>
+      <td>直飞</td>
+      <td>2.5h</td>
+      <td><span class="st st-todo">⬜ 订票</span></td>
+    </tr>
+    <tr>
+      <td>18:45</td>
+      <td><b>PPP 机场 → Airlie Beach 入住</b><div class="desc">机场大巴（Whitsunday Transit，约 AUD $25/人，送到酒店门口）或打车 40 分钟</div></td>
+      <td>大巴/打车 40min</td>
+      <td>1h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr class="food">
+      <td>20:00</td>
+      <td>🍽 主街晚餐 + 海边散步认路（顺便确认后天帆船的集合码头 Port of Airlie）</td>
+      <td>步行</td>
+      <td>—</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- ======================= D9 ======================= -->
+<div class="day seg-whi" id="d9">
+  <div class="day-head">D9 · 10/30（五）<span class="theme">🏖 白天堂沙滩帆船一日</span></div>
+  <table>
+    <tr><th>时间</th><th>去哪</th><th>怎么去</th><th>花多久</th><th>状态</th></tr>
+    <tr>
+      <td>08:00</td>
+      <td><div class="poi"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Whitehaven_Beach%2C_Whitsunday_Island%2C_Queensland.jpg/960px-Whitehaven_Beach%2C_Whitsunday_Island%2C_Queensland.jpg" alt=""><div><b>Camira 帆船 · 白天堂沙滩</b> <span class="en">Whitehaven Beach</span><div class="desc">7 公里纯白硅砂，常年全球最美沙滩前三。船上躺平吹海风，到滩自由玩沙拍照。含 BBQ 午餐 <a class="map" href="https://www.google.com/maps/search/?api=1&query=Whitehaven+Beach" target="_blank">📍 地图</a></div></div></div></td>
+      <td>Port of Airlie 集合出海</td>
+      <td>全天</td>
+      <td><span class="st st-todo">⬜ 订票</span></td>
+    </tr>
+    <tr>
+      <td>穿插</td>
+      <td><div class="poi"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Hill_Inlet%2C_Whitsunday_Island%2C_QLD%2C_Australia_%2812820292263%29.jpg/960px-Hill_Inlet%2C_Whitsunday_Island%2C_QLD%2C_Australia_%2812820292263%29.jpg" alt=""><div><b>希尔湾观景台</b> <span class="en">Hill Inlet Lookout</span><div class="desc">行程内含 20 分钟步道登顶，俯瞰奶昔色沙水旋涡（涨潮前后 2h 颜色最美）</div></div></div></td>
+      <td>随船</td>
+      <td>40min</td>
+      <td><span class="st st-free">🆓 含在船票</span></td>
+    </tr>
+    <tr class="food">
+      <td>18:00</td>
+      <td>🍽 回镇上晚餐，早睡（今天晒了一天）</td>
+      <td>步行</td>
+      <td>—</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- ======================= D10 ======================= -->
+<div class="day seg-whi" id="d10">
+  <div class="day-head">D10 · 10/31（六）<span class="theme">🏖 懒觉 + 中午小飞机看心形礁</span></div>
+  <table>
+    <tr><th>时间</th><th>去哪</th><th>怎么去</th><th>花多久</th><th>状态</th></tr>
+    <tr>
+      <td>上午</td>
+      <td><b>睡到自然醒</b> + 民宿慢早餐</td>
+      <td>—</td>
+      <td>—</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr>
+      <td>11:30</td>
+      <td><div class="poi"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Heart_Reef_and_Lagoon_Great_Barrier_Reef.jpg" alt=""><div><b>心形礁观光小飞机</b> <span class="en">Heart Reef Scenic Flight · 60 分钟</span><div class="desc">保证靠窗位，一路看白天堂+希尔湾+大堡礁礁群，高潮是天然心形珊瑚礁（只有空中看得到）。接送车提前约 40 分钟来民宿接 <a class="map" href="https://www.google.com/maps/search/?api=1&query=Whitsunday+Airport+Flametree" target="_blank">📍 地图</a></div></div></div></td>
+      <td>运营商免费接送</td>
+      <td>2h（含接送）</td>
+      <td><span class="st st-todo">⬜ 订票</span></td>
+    </tr>
+    <tr>
+      <td>15:00</td>
+      <td><div class="poi"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Airlie_Bay%2C_Airlie_Beach_IMGP0267.jpg/960px-Airlie_Bay%2C_Airlie_Beach_IMGP0267.jpg" alt=""><div><b>Airlie Beach Lagoon 发呆</b><div class="desc">镇中心免费海景大泳池，晒太阳/下水/看书随你，妈妈也安全</div></div></div></td>
+      <td>步行</td>
+      <td>2h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr class="food">
+      <td>18:30</td>
+      <td>🍽 海边晚餐看日落（周六主街最热闹，可小喝一杯）</td>
+      <td>步行</td>
+      <td>—</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- ======================= D11 ======================= -->
+<div class="day seg-whi" id="d11">
+  <div class="day-head">D11 · 11/1（日）<span class="theme">🏖 全天纯躺 · 可选日落帆船</span></div>
+  <table>
+    <tr><th>时间</th><th>去哪</th><th>怎么去</th><th>花多久</th><th>状态</th></tr>
+    <tr>
+      <td>全天</td>
+      <td><b>纯躺日</b>：Lagoon 泡水 / 民宿看海 / 主街咖啡 / 滨海步道（Bicentennial Walkway 走到 Cannonvale，平路好走）</td>
+      <td>步行</td>
+      <td>—</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr>
+      <td>17:00</td>
+      <td><b>🟢 可选：日落帆船 2h</b><div class="desc">Airlie 出发的 Sunset Sail（约 AUD $80-100/人），香槟+海上日落。想去现场订即可，不想去就海边看同款日落，免费</div></td>
+      <td>步行到码头</td>
+      <td>2h</td>
+      <td><span class="st st-wait">⏳ 可选</span></td>
+    </tr>
+    <tr class="food">
+      <td>19:30</td>
+      <td>🍽 告别晚餐（明早理行李，早点回）</td>
+      <td>—</td>
+      <td>—</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- ======================= D12 ======================= -->
+<div class="day seg-syd" id="d12">
+  <div class="day-head">D12 · 11/2（一）<span class="theme">自然醒 → 下午飞回悉尼</span></div>
+  <table>
+    <tr><th>时间</th><th>去哪</th><th>怎么去</th><th>花多久</th><th>状态</th></tr>
+    <tr>
+      <td>上午</td>
+      <td><b>自然醒 + 退房 + 早午餐</b><div class="desc">行李寄前台，最后去 Lagoon 边坐一会儿</div></td>
+      <td>—</td>
+      <td>—</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr>
+      <td>12:30</td>
+      <td><b>机场大巴 → PPP 机场</b>（提前 1h 到机场即可，小机场很快）</td>
+      <td>大巴 40min</td>
+      <td>1h</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr>
+      <td>13:55 ✈️</td>
+      <td><b>PPP → SYD</b>（17:25 到，时刻以订票为准）</td>
+      <td>直飞 2.5h</td>
+      <td>2.5h</td>
+      <td><span class="st st-todo">⬜ 订票</span></td>
+    </tr>
+    <tr class="food">
+      <td>19:00</td>
+      <td>🍽 入住后晚餐 + 理行李（明早 8:00 前到机场）</td>
+      <td>—</td>
+      <td>—</td>
+      <td><span class="st st-todo">⬜ 订房</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- ======================= D13 ======================= -->
+<div class="day seg-syd" id="d13">
+  <div class="day-head">D13 · 11/3（二）<span class="theme">✈️ 回北京</span></div>
+  <table>
+    <tr><th>时间</th><th>去哪</th><th>怎么去</th><th>花多久</th><th>状态</th></tr>
+    <tr>
+      <td>07:30</td>
+      <td><b>到悉尼机场 T1</b>（国际航班提前 2.5h）</td>
+      <td>打车/Train</td>
+      <td>30min</td>
+      <td><span class="st st-free">🆓</span></td>
+    </tr>
+    <tr>
+      <td>10:10 ✈️</td>
+      <td><b>CA174 悉尼 → 北京</b>（18:30 到 PEK T3）<div class="desc">⚠️ 回程已从 11/2 改签到 11/3，订票时确认周二班次</div></td>
+      <td>直飞 11h20m</td>
+      <td>—</td>
+      <td><span class="st st-wait">⏳ 待订</span></td>
+    </tr>
+  </table>
+</div>
+
+<div class="tip" style="margin-top:20px">
+  <b>📌 备忘：</b>
+  ① 圣灵群岛 11 月起进入水母季（10 月底临界），出海务必穿运营商发的防蜇服下水；
+  ② 悉尼 10 月底春天 15-23°C，圣灵群岛 27-30°C，夏装+一件外套；
+  ③ 澳洲插头和国内一样是三脚扁头（无需转换头，带个插排更方便）；
+  ④ 全程刷 Visa/Master 芯片卡即可，现金少带。
+</div>
+
+</main>
+
+<script>
+// 图片懒加载（不改表格 innerHTML，避免影响同步快照）
+document.querySelectorAll('img').forEach(function(i){ i.loading='lazy'; });
+</script>
+
+<!-- ============================================================
+  协作看板 · 编辑模式 + ☁️ 云端自动同步（免注册，Nostr 公共中继）
+  用法：把本文件 ①CSS ②工具栏 div ③script 三段嵌进目标静态页 </body> 前，
+  替换 4 个占位符：
+    syd-trip-2026-edits-v1      localStorage 前缀，每个项目一个，如 'uk-trip-edits-v1'
+    5d0e6a81e096fa8c9677cccf08687a9f148256e9c412a49f4dc5fe2643100a47 / 76f95be461a3da47a96e6fe0df44ad39857182a5b9848af9cb6f71ce1824fc61  用 scripts/nostr-publish.mjs genkey 生成，全项目共用一对
+    syd-whitsundays-2026-edits     云端文档标识，每个项目一个，如 'uk-trip-2026-edits'
+  页面结构要求：要可编辑的内容放在 <table> 里（脚本按表格索引同步全部 table 的 innerHTML）。
+============================================================ -->
+
+<!-- ① CSS -->
+<style>
+  #editbar {
+    position:fixed; left:0; right:0; bottom:0; background:#1e3a5a; color:#fff;
+    padding:9px 14px; display:flex; gap:8px; align-items:center; z-index:99;
+    font-size:12.5px; flex-wrap:wrap; box-shadow:0 -2px 10px rgba(0,0,0,.15);
+  }
+  #editbar button {
+    background:#fff; color:#1e3a5a; border:none; border-radius:6px;
+    padding:5px 12px; font-size:12.5px; font-weight:600; cursor:pointer;
+  }
+  #editbar button:hover { background:#dce8ee; }
+  #editnote { opacity:.85; font-size:12px; display:none; }
+  body.editing #editnote { display:inline; }
+  body.editing td { outline:1px dashed #c9a24b; outline-offset:-1px; cursor:text; }
+</style>
+
+<!-- ② 工具栏（放在页面底部） -->
+<div id="editbar">
+  <button id="btnEdit">✏️ 编辑模式</button>
+  <button id="btnExport" style="display:none">📤 导出变更（备用）</button>
+  <button id="btnReset" style="display:none">🔁 重置修改</button>
+  <span id="editnote">✅ 编辑中：直接点表格文字改，<b>改动自动云端同步</b>，对方刷新页面就能看到。</span>
+  <span id="syncstat" style="margin-left:auto;opacity:.9;font-size:12px">☁️ …</span>
+</div>
+
+<!-- ③ 同步脚本 -->
+<script>
+(function(){
+  const KEY='syd-trip-2026-edits-v1';
+  const NOSTR_SK='5d0e6a81e096fa8c9677cccf08687a9f148256e9c412a49f4dc5fe2643100a47';
+  const NOSTR_PK='76f95be461a3da47a96e6fe0df44ad39857182a5b9848af9cb6f71ce1824fc61';
+  const DTAG='syd-whitsundays-2026-edits';
+  const RELAYS=['wss://relay.damus.io','wss://nos.lol','wss://nostr.mom','wss://offchain.pub'];
+  const CDNS=['https://cdn.jsdelivr.net/npm/nostr-tools@2.13.0/+esm','https://unpkg.com/nostr-tools@2.13.0/+esm'];
+
+  const tables=[...document.querySelectorAll('table')];
+  const stat=document.getElementById('syncstat');
+  let localStamp=0, cloudStamp=0, putTimer=null, NT=null, pool=null;
+
+  function setStat(t){ if(stat) stat.textContent=t; }
+  function applyObj(obj){
+    tables.forEach((t,i)=>{ if(obj && obj[i]){ try{ t.innerHTML=obj[i]; }catch(e){} } });
+  }
+  function collectObj(){
+    const o={}; tables.forEach((t,i)=>{ o[i]=t.innerHTML; }); return o;
+  }
+  function saveLocal(){
+    tables.forEach((t,i)=>localStorage.setItem(KEY+'-'+i,t.innerHTML));
+    localStamp=Date.now();
+    localStorage.setItem(KEY+'-meta',String(localStamp));
+  }
+
+  // 先用本机缓存渲染（秒开）
+  try{ localStamp=parseInt(localStorage.getItem(KEY+'-meta')||'0',10)||0; }catch(e){}
+  tables.forEach((t,i)=>{
+    const saved=localStorage.getItem(KEY+'-'+i);
+    if(saved){ try{ t.innerHTML=saved; }catch(e){} }
+  });
+
+  // 连接云端：谁新用谁
+  setStat('☁️ 正在连接云端…');
+  (async()=>{
+    for(const c of CDNS){ try{ NT=await import(c); break; }catch(e){} }
+    if(!NT){ setStat('⚠️ 同步组件加载失败 · 改动只存本机'); return; }
+    try{
+      pool=new NT.SimplePool();
+      // 关键：默认连接超时 4.4s 在国内网络会误杀，必须放宽
+      await Promise.allSettled(RELAYS.map(u=>pool.ensureRelay(u,{connectionTimeout:25000})));
+      const query=pool.querySync(RELAYS,{kinds:[30078],authors:[NOSTR_PK],'#d':[DTAG]},{maxWait:25000});
+      const evs=await Promise.race([query,new Promise(r=>setTimeout(()=>r([]),30000))]);
+      const latest=(evs||[]).sort((a,b)=>b.created_at-a.created_at)[0];
+      if(latest){
+        const d=JSON.parse(latest.content||'{}');
+        cloudStamp=Date.parse(d.updatedAt||'')||0;
+        if(d.tables && cloudStamp>localStamp){
+          applyObj(d.tables);
+          tables.forEach((t,i)=>localStorage.setItem(KEY+'-'+i,t.innerHTML));
+          localStamp=cloudStamp;
+          localStorage.setItem(KEY+'-meta',String(cloudStamp));
+        }
+        const when=d.updatedAt?new Date(d.updatedAt).toLocaleString('zh-CN',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}):'';
+        setStat('☁️ 已同步'+(when?' · 最近保存 '+when:''));
+      }else{
+        setStat('☁️ 已连接');
+      }
+      if(localStamp>cloudStamp) pushCloud(); // 本机有未同步改动，补推
+    }catch(e){ setStat('⚠️ 云端暂不可用 · 改动先存本机'); }
+  })();
+
+  async function pushCloud(){
+    if(!NT||!pool){ setStat('⚠️ 云端未连接 · 已存本机'); return; }
+    setStat('☁️ 同步中…');
+    try{
+      await Promise.allSettled(RELAYS.map(u=>pool.ensureRelay(u,{connectionTimeout:25000})));
+      const sk=Uint8Array.from(NOSTR_SK.match(/../g).map(h=>parseInt(h,16)));
+      const ev=NT.finalizeEvent({
+        kind:30078, created_at:Math.floor(Date.now()/1000), tags:[['d',DTAG]],
+        content:JSON.stringify({tables:collectObj(),updatedAt:new Date().toISOString()})
+      },sk);
+      const rs=await Promise.allSettled(pool.publish(RELAYS,ev));
+      if(rs.some(r=>r.status==='fulfilled')){ cloudStamp=Date.now(); setStat('☁️ 已同步 · 对方刷新可见'); }
+      else setStat('⚠️ 同步失败 · 已存本机，重新打开会自动补同步');
+    }catch(e){ setStat('⚠️ 同步失败 · 已存本机'); }
+  }
+
+  let editOn=false;
+  const bE=document.getElementById('btnEdit'),
+        bX=document.getElementById('btnExport'),
+        bR=document.getElementById('btnReset');
+
+  function setEdit(on){
+    editOn=on;
+    document.body.classList.toggle('editing',on);
+    document.querySelectorAll('td').forEach(td=>{
+      td.contentEditable = on ? 'plaintext-only' : 'false';
+    });
+    bE.textContent = on ? '✅ 完成编辑' : '✏️ 编辑模式';
+    bX.style.display = on ? '' : 'none';
+    bR.style.display = on ? '' : 'none';
+  }
+  bE.onclick=()=>setEdit(!editOn);
+
+  document.addEventListener('input',e=>{
+    if(!editOn) return;
+    if(!e.target.closest('table')) return;
+    saveLocal();
+    clearTimeout(putTimer);
+    putTimer=setTimeout(pushCloud,1000);
+  });
+
+  // 备用：把第一张表（约定为"总表"）导出为文本清单
+  bX.onclick=()=>{
+    const master=tables[0];
+    const lines=['📒 更新（'+new Date().toLocaleString('zh-CN')+'）',''];
+    [...master.querySelectorAll('tr')].slice(1).forEach(tr=>{
+      const c=[...tr.querySelectorAll('td')].map(td=>td.innerText.trim().replace(/\s+/g,' '));
+      if(c.length>=3) lines.push('• '+c[0]+' ｜ '+c[2]+(c[3]?' ｜ '+c[3]:''));
+    });
+    const txt=lines.join('\n');
+    (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject())
+      .then(()=>{ bX.textContent='✅ 已复制'; setTimeout(()=>bX.textContent='📤 导出变更（备用）',2500); })
+      .catch(()=>{ prompt('复制下面内容：',txt); });
+  };
+
+  bR.onclick=async()=>{
+    if(confirm('确定清除全部修改，恢复成发布时的版本？（云端也会一起清掉）')){
+      tables.forEach((t,i)=>localStorage.removeItem(KEY+'-'+i));
+      localStorage.removeItem(KEY+'-meta');
+      if(NT&&pool){
+        try{
+          await Promise.allSettled(RELAYS.map(u=>pool.ensureRelay(u,{connectionTimeout:25000})));
+          const sk=Uint8Array.from(NOSTR_SK.match(/../g).map(h=>parseInt(h,16)));
+          const ev=NT.finalizeEvent({kind:30078,created_at:Math.floor(Date.now()/1000),tags:[['d',DTAG]],
+            content:JSON.stringify({tables:{},updatedAt:new Date().toISOString()})},sk);
+          await Promise.allSettled(pool.publish(RELAYS,ev));
+        }catch(e){}
+      }
+      location.reload();
+    }
+  };
+})();
+</script>
+
+</body>
+</html>
